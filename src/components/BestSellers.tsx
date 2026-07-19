@@ -10,7 +10,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function NewArrivals() {
+export default function BestSellers() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,7 +36,7 @@ export default function NewArrivals() {
   return (
     <section className="mx-auto max-w-7xl py-16">
       <h2 className="mb-8 text-3xl font-bold">
-        New Arrivals
+         Our Bestsellers
       </h2>
 
       <Swiper   className="px-3"

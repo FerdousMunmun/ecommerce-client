@@ -1,3 +1,4 @@
+import BestSellers from "@/components/BestSellers";
 import Hero from "@/components/Hero";
 import NewArrivals from "@/components/NewArrivals";
 import PromoSection from "@/components/PromoSection";
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero/>
       <PromoSection/>
       <NewArrivals/>
+      <BestSellers/>
     </div>
   );
 }

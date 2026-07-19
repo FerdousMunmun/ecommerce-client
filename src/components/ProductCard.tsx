@@ -13,7 +13,7 @@ export default function ProductCard({
   product,
 }: ProductCardProps) {
   return (
-    <div className="group overflow-hidden rounded-xl border bg-white transition-all duration-300 hover:shadow-xl">
+   <div className="group overflow-hidden rounded-xl border bg-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl">
       {/* Image */}
       <div className="relative overflow-hidden">
         <Image
@@ -21,7 +21,7 @@ export default function ProductCard({
           alt={product.name}
           width={350}
           height={350}
-          className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-72 w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
         />
 
         {/* New Badge */}
@@ -51,7 +51,7 @@ export default function ProductCard({
       </div>
 
       {/* Content */}
-      <div className="p-4">
+   <div className="p-4 min-h-[170px]">
         <div className="flex items-center justify-between">
           <h3 className="line-clamp-1 text-lg font-semibold">
             {product.name}
@@ -66,13 +66,22 @@ export default function ProductCard({
           {product.category}
         </p>
 
-        <Button
-          color="primary"
-          className="mt-5 w-full"
-          radius="sm"
-        >
-          View Details
-        </Button>
+      <div className="mt-5 transform space-y-3 text-sm opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 translate-y-4">
+  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black">
+    Add to Wish List
+    <Heart size={16} />
+  </button>
+
+  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black">
+    Compare
+    <Eye size={16} />
+  </button>
+
+  <button className="flex w-full items-center justify-end gap-2 font-semibold text-black transition hover:text-[#9C6B3F]">
+    Add to Cart
+    <ShoppingCart size={16} />
+  </button>
+</div>
       </div>
     </div>
   );
