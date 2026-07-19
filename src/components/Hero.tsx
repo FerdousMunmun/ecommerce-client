@@ -43,9 +43,8 @@ export default function Hero() {
 
                 <div className="mt-8 flex gap-4">
                   <Button
-                    color="primary"
-                    radius="sm"
-                    size="lg"
+                    radius="full"
+                    className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
                   >
                     Shop Now
                   </Button>
@@ -87,7 +86,12 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-8 flex gap-4">
-                  <Button color="primary">Shop Now</Button>
+                  <Button
+                    radius="full"
+                    className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
+                  >
+                    Shop Now
+                  </Button>
 
                   <Button variant="bordered">
                     View Products
@@ -122,7 +126,12 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-8 flex gap-4">
-                  <Button color="primary">Explore</Button>
+                  <Button
+  radius="full"
+  className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
+>
+  Explore
+</Button>
 
                   <Button variant="bordered">
                     Learn More
