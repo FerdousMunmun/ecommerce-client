@@ -1,27 +1,45 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { getNewArrivals } from "@/services/product";
+import { useEffect, useState } from "react";
+import { Product } from "@/types/products";
+import { getProducts } from "@/service/product";
+import ProductCard from "./ProductCard";
 
 export default function NewArrivals() {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["new-arrivals"],
-    queryFn: getNewArrivals,
-  });
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  if (isLoading) return <p>Loading...</p>;
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (error) return <p>Something went wrong.</p>;
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
-    <section>
-      <h2 className="text-3xl font-bold">New Arrivals</h2>
+    <section className="mx-auto max-w-7xl py-16">
+      <h2 className="mb-8 text-3xl font-bold">
+        New Arrivals
+      </h2>
 
-      <div className="grid grid-cols-4 gap-6 mt-8">
-        {data?.map((product: any) => (
-          <div key={product._id}>
-            {product.name}
-          </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {products.map((product) => (
+          <ProductCard
+            key={product._id}
+            product={product}
+          />
         ))}
       </div>
     </section>
