@@ -1,10 +1,12 @@
-"use client";
+
 
 import Image from "next/image";
 import { Button, Chip } from "@heroui/react";
 import { Heart, Eye, ShoppingCart } from "lucide-react";
 import { Product } from "@/types/products";
-
+import { addToCart } from "@/service/cart";
+import { toast } from "sonner";
+import Link from "next/link";
 interface ProductCardProps {
   product: Product;
 }
@@ -12,17 +14,43 @@ interface ProductCardProps {
 export default function ProductCard({
   product,
 }: ProductCardProps) {
+
+
+const handleAddToCart = async () => {
+  try {
+    const result = await addToCart({
+  ...product,
+  quantity: 1,
+});
+
+    if (result.success) {
+      toast.success("Added to Cart 🛒", {
+  description: `${product.name} was added successfully.`,
+});
+    } else {
+      toast.warning("Already in your cart 🛒", {
+  description: "This product has already been added.",
+});
+    }
+  } catch (error) {
+    console.error(error);
+
+    toast.error("Something went wrong");
+  }
+};
   return (
    <div className="group overflow-hidden rounded-xl border bg-white transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl">
       {/* Image */}
       <div className="relative overflow-hidden">
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={350}
-          height={350}
-          className="h-72 w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-        />
+        <Link href={`/products/${product._id}`}>
+  <Image
+    src={product.image}
+    alt={product.name}
+    width={350}
+    height={350}
+    className="h-72 w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+  />
+</Link>
 
         {/* New Badge */}
         {product.isNew && (
@@ -53,9 +81,11 @@ export default function ProductCard({
       {/* Content */}
    <div className="p-4 min-h-[170px]">
         <div className="flex items-center justify-between">
-          <h3 className="line-clamp-1 text-lg font-semibold">
-            {product.name}
-          </h3>
+    <Link href={`/products/${product._id}`}>
+  <h3 className="line-clamp-1 text-lg font-semibold hover:text-[#9C6B3F] transition">
+    {product.name}
+  </h3>
+</Link>
 
           <span className="font-bold text-gray-800">
             ${product.price}
@@ -77,7 +107,8 @@ export default function ProductCard({
     <Eye size={16} />
   </button>
 
-  <button className="flex w-full items-center justify-end gap-2 font-semibold text-black transition hover:text-[#9C6B3F]">
+  <button  onClick={handleAddToCart}
+  className="flex w-full items-center justify-end gap-2 font-semibold text-black transition hover:text-[#9C6B3F]">
     Add to Cart
     <ShoppingCart size={16} />
   </button>

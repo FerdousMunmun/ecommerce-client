@@ -15,7 +15,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { uploadImage } from "@/services/image";
+import { uploadImage } from "@/service/imageUpload";
 
 const RagistrationPage = () => {
   const [imageFile, setImageFile] = useState<File | null>(null)
@@ -64,7 +64,7 @@ if (imageFile) {
     <div className="max-w-7xl mx-auto">
       <div className="text-center my-3">
         <h1 className="text-2xl font-bold">Create Account</h1>
-        <p>Find trusted child care centers near you.</p>
+        <p>Create an account to start shopping with us.</p>
       </div>
       <Card className="border rounded-none">
         <Form onSubmit={onSubmit} className="flex w-96 flex-col gap-4">

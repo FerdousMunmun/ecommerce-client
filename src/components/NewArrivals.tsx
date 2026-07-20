@@ -18,7 +18,7 @@ export default function NewArrivals() {
     const fetchProducts = async () => {
       try {
         const data = await getProducts();
-        setProducts(data);
+       setProducts(data.products);
       } catch (error) {
         console.error(error);
       } finally {

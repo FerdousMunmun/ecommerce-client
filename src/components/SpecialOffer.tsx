@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 export default function SpecialOffer() {
   return (
     <section className="mx-auto my-20 max-w-7xl px-4">
-      <div className="relative h-[420px] overflow-hidden rounded-3xl">
+      <div className="relative h-[500px] overflow-hidden rounded-3xl">
         <Image
           src="/images/special-offer.jpg"
           alt="Special Offer"
@@ -29,7 +29,7 @@ export default function SpecialOffer() {
 
           <Button
             radius="full"
-            className="bg-[#9C6B3F] px-8 py-7 text-lg font-semibold text-white hover:bg-[#7D542F]"
+            className="bg-[#9C6B3F] px-8 py-7 hover:bg-[#7D542F] hover:scale-105 text-lg font-semibold text-white hover:bg-[#7D542F]"
           >
             Shop Now
           </Button>

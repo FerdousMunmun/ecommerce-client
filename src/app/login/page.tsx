@@ -14,7 +14,7 @@ import { authClient } from "@/lib/auth-client";
 
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { useState } from "react";
 
 const LoginPage = () => {
@@ -25,16 +25,7 @@ const LoginPage = () => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // const formData = new FormData(e.currentTarget);
-        // const user = Object.fromEntries(formData.entries()) as {
-        //     email: string;
-        //     password: string;
-        // };
-
-        // const { data, error } = await authClient.signIn.email({
-        //     email: user.email,
-        //     password: user.password,
-        // });
+        
 
         const { data, error } = await authClient.signIn.email({
             email,
@@ -69,7 +60,7 @@ const LoginPage = () => {
     return;
   }
 
-  toast.success("Welcome to LittleNest!");
+  toast.success("Welcome Modenza!");
   router.push("/");
 };
     const handleGoogleSignin = async () => {
@@ -83,7 +74,7 @@ const LoginPage = () => {
         <div className="max-w-7xl mx-auto">
             <div className="text-center my-3">
                 <h1 className="text-2xl font-bold">Login</h1>
-                <p>Login to continue exploring trusted child care centers.</p>
+               <p>Create an account to start shopping with us.</p>
             </div>
             <Card className="border rounded-none">
                 <Form onSubmit={onSubmit} className="flex w-96 flex-col gap-4">

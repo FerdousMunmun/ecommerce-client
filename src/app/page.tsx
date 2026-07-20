@@ -2,6 +2,7 @@ import BestSellers from "@/components/BestSellers";
 import Hero from "@/components/Hero";
 import NewArrivals from "@/components/NewArrivals";
 import PromoSection from "@/components/PromoSection";
+import SpecialOffer from "@/components/SpecialOffer";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <PromoSection/>
       <NewArrivals/>
       <BestSellers/>
+      <SpecialOffer/>
     </div>
   );
 }
