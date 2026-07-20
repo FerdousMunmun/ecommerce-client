@@ -4,10 +4,11 @@ export const getProducts = async (
   page = 1,
   limit = 6,
   search = "",
-  sort = "newest"
+  sort = "newest",
+    category = ""
 ) => {
   const res = await fetch(
-    `${API_URL}/products?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}&sort=${sort}`
+    `${API_URL}/products?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}&sort=${sort}&category=${encodeURIComponent(category)}`
   );
 
   if (!res.ok) {

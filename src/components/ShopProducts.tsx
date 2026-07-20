@@ -10,19 +10,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 
-export default function ShopProducts() {
+type ShopProductsProps = {
+  search?: string;
+  category?: string;
+};
+
+export default function ShopProducts({
+  search: initialSearch = "",
+  category = "",
+}: ShopProductsProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 const [total, setTotal] = useState(0);
 const limit = 6;
-const [search, setSearch] = useState("");
+const [search, setSearch] = useState(initialSearch);
 const [sort, setSort] = useState("newest");
+useEffect(() => {
+  setSearch(initialSearch);
+  setPage(1);
+}, [initialSearch]);
 
   useEffect(() => {
     const fetchProducts = async () => {
   try {
-    const data = await getProducts(page, limit, search,sort);
+    const data = await getProducts(page, limit, search,sort, category);
 
     setProducts(data.products);
     setTotal(data.total);
@@ -34,7 +46,7 @@ const [sort, setSort] = useState("newest");
 };
 
   fetchProducts();
-}, [page,search,sort]);
+},  [page, search, sort, category]);
 
   if (loading) {
   return (
