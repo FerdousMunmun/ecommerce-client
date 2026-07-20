@@ -20,7 +20,7 @@ import { toast } from "sonner";
 
 const Navbar = () => {
 
-const [showCategory, setShowCategory] = useState(false);
+  const [showCategory, setShowCategory] = useState(false);
 
   const [cartCount, setCartCount] = useState(0);
   const [search, setSearch] = useState("");
@@ -73,6 +73,12 @@ const [showCategory, setShowCategory] = useState(false);
             >
               Shop
             </Link>
+            <Link
+              href="/add-product"
+              className="hover:text-primary transition"
+            >
+              AI Generator
+            </Link>
 
             <Link
               href="/about"
@@ -95,34 +101,34 @@ const [showCategory, setShowCategory] = useState(false);
       <div className="bg-gray-100">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Category */}
-         <div className="relative">
-  <button
-    onClick={() => setShowCategory(!showCategory)}
-    className="flex items-center gap-2 text-sm"
-  >
-    <Menu size={18} />
-    <span>Shop by Category</span>
-  </button>
+          <div className="relative">
+            <button
+              onClick={() => setShowCategory(!showCategory)}
+              className="flex items-center gap-2 text-sm"
+            >
+              <Menu size={18} />
+              <span>Shop by Category</span>
+            </button>
 
-  {showCategory && (
-    <div className="absolute left-0 top-10 z-50 w-56 rounded-xl border bg-white p-2 shadow-lg">
-      {["Living Room", "Bedroom", "Lighting", "Decor"].map((category) => (
-        <button
-          key={category}
-          onClick={() => {
-            router.push(
-              `/shop?category=${encodeURIComponent(category)}`
-            );
-            setShowCategory(false);
-          }}
-          className="block w-full rounded-lg px-4 py-2 text-left hover:bg-gray-100"
-        >
-          {category}
-        </button>
-      ))}
-    </div>
-  )}
-</div>
+            {showCategory && (
+              <div className="absolute left-0 top-10 z-50 w-56 rounded-xl border bg-white p-2 shadow-lg">
+                {["Living Room", "Bedroom", "Lighting", "Decor"].map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => {
+                      router.push(
+                        `/shop?category=${encodeURIComponent(category)}`
+                      );
+                      setShowCategory(false);
+                    }}
+                    className="block w-full rounded-lg px-4 py-2 text-left hover:bg-gray-100"
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Search */}
           <div className="relative w-full max-w-md">

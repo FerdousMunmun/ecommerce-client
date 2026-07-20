@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Button, Input, TextArea } from "@heroui/react";
-import AIContentGenerator from "@/components/AIContentGenerator";
+import AIContentGenerator from "@/components/AiContentGenerator";
+
 
 export default function AddProductPage() {
   const [image, setImage] = useState<File | null>(null);
@@ -63,10 +64,10 @@ export default function AddProductPage() {
           placeholder="4.8"
         />
 <AIContentGenerator />
-        <Textarea
-          label="Description"
-          placeholder="Write product description..."
-        />
+       <TextArea
+  label="Description"
+  placeholder="Write product description..."
+/>
 
         <div>
           <label className="mb-2 block font-medium">
