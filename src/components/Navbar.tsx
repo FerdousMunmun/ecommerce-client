@@ -20,15 +20,23 @@ const Navbar = () => {
 
 
   const [cartCount, setCartCount] = useState(0);
+  const [search, setSearch] = useState("");
   const router = useRouter();
-const { data: session,isPendin } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
 
-console.log({ session, isPending });
+
+  console.log("Session:", session)
   const handleLogout = async () => {
     await authClient.signOut();
 
     toast.success("Logged out successfully");
     router.push("/");
+  };
+
+  const handleSearch = () => {
+    if (!search.trim()) return;
+
+    router.push(`/shop?search=${encodeURIComponent(search)}`);
   };
 
   useEffect(() => {
@@ -94,66 +102,83 @@ console.log({ session, isPending });
             <input
               type="text"
               placeholder="Search Products"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
               className="w-full rounded bg-white py-2 pl-4 pr-10 outline-none"
             />
 
             <Search
               size={18}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+              onClick={handleSearch}
+              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
             />
           </div>
 
           {/* Icons */}
           <div className="flex items-center gap-5">
-           {session ? (
-  <div className="flex items-center gap-3">
-    <Link
-      href="/profile"
-      className="flex items-center gap-2 hover:text-blue-600"
-    >
-      <User size={18} />
-      <span className="hidden md:block">
-        {session.user.name}
-      </span>
-    </Link>
+            {session ? (
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/profile"
+                  className="flex items-center gap-2 hover:text-blue-600"
+                >
+                  {session.user.image ? (
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="h-8 w-8 rounded-full object-cover border"
+                    />
+                  ) : (
+                    <User size={20} />
+                  )}
 
-    <button
-      onClick={handleLogout}
-      className="text-sm text-red-600 hover:underline"
-    >
-      Logout
-    </button>
-  </div>
-) : (
-  <div className="flex items-center gap-4">
-    <Link
-      href="/login"
-      className="flex items-center gap-1 hover:text-blue-600"
-    >
-      <User size={18} />
-      Login
-    </Link>
+                  <span className="hidden md:block">
+                    {session.user.name}
+                  </span>
+                </Link>
 
-    <Link
-      href="/registration"
-      className="hover:text-blue-600"
-    >
-      Register
-    </Link>
-  </div>
-)}
+                <button
+                  onClick={handleLogout}
+                  className="text-sm text-red-600 hover:underline"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <Link
+                  href="/login"
+                  className="flex items-center gap-1 hover:text-blue-600"
+                >
+                  <User size={18} />
+                  Login
+                </Link>
+
+                <Link
+                  href="/registration"
+                  className="hover:text-blue-600"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
 
             <Link href="/cart">
-  <div className="relative cursor-pointer">
-    <ShoppingCart size={24} />
+              <div className="relative cursor-pointer">
+                <ShoppingCart size={24} />
 
-    {cartCount > 0 && (
-      <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
-        {cartCount}
-      </span>
-    )}
-  </div>
-</Link>
+                {cartCount > 0 && (
+                  <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
+            </Link>
           </div>
         </div>
       </div>

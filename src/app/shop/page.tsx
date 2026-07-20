@@ -1,7 +1,15 @@
 import ShopSidebar from "@/components/ShopSidebar";
 import ShopProducts from "@/components/ShopProducts";
 
-export default function ShopPage() {
+export default async function ShopPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    search?: string;
+    category?: string;
+  }>;
+}) {
+  const params = await searchParams;
   return (
     <section className="mx-auto max-w-7xl px-4 py-12">
       <h1 className="mb-10 text-4xl font-bold">
@@ -24,7 +32,10 @@ export default function ShopPage() {
             </span>
           </div>
 
-          <ShopProducts />
+          <ShopProducts
+  search={params.search}
+  category={params.category}
+/>
 
         </div>
 

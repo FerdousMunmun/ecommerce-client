@@ -40,7 +40,7 @@ const LoginPage = () => {
 
         if (data) {
             toast.success("Login Successful!");
-            router.push("/");
+            window.location.href = "/";
         }
     };
     const handleDemoLogin = async () => {
