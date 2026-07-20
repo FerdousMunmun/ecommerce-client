@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Input, TextArea } from "@heroui/react";
-import AIContentGenerator from "@/components/AiContentGenerator";
+import {  Input, TextArea } from "@heroui/react";
+import AIContentGenerator from "@/components/AIContentGenerator";
+
 
 
 export default function AddProductPage() {
@@ -26,46 +27,48 @@ export default function AddProductPage() {
         onSubmit={handleSubmit}
         className="space-y-6 rounded-xl border p-8 shadow-sm"
       >
-        <Input
-          label="Product Name"
-          placeholder="Modern Sofa"
-          isRequired
-        />
-
+       <label className="font-medium">Product Name</label>
+<Input
+  placeholder="Modern Sofa"
+  required
+/>
+<label className="font-medium">Product Price</label>
         <Input
           type="number"
-          label="Price"
+          
           placeholder="450"
-          isRequired
+            required
         />
-
+<label className="font-medium">Product Category</label>
         <Input
-          label="Category"
+       
           placeholder="Living Room"
-          isRequired
+           required
         />
-
+<label className="font-medium">Brand</label>
         <Input
-          label="Brand"
+        
           placeholder="Modenza"
-          isRequired
+           required
         />
-
+<label className="font-medium">Stock</label>
         <Input
           type="number"
-          label="Stock"
+         
           placeholder="20"
-          isRequired
+           required
         />
-
+<label className="font-medium">Rating</label>
         <Input
           type="number"
-          label="Rating"
+         
           placeholder="4.8"
         />
 <AIContentGenerator />
+
+<label className="font-medium">Description</label>
        <TextArea
-  label="Description"
+  
   placeholder="Write product description..."
 />
 
@@ -83,13 +86,13 @@ export default function AddProductPage() {
           />
         </div>
 
-        <Button
+        <button
           color="primary"
           type="submit"
           className="w-full"
         >
           Add Product
-        </Button>
+        </button>
       </form>
     </div>
   );

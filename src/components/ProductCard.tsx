@@ -64,15 +64,15 @@ const handleAddToCart = async () => {
 
         {/* Hover Icons */}
         <div className="absolute right-3 top-3 flex translate-x-10 flex-col gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-          <Button isIconOnly radius="full" size="sm" variant="flat">
+          <Button isIconOnly   className="rounded-full" size="sm" variant="ghost">
             <Heart size={18} />
           </Button>
 
-          <Button isIconOnly radius="full" size="sm" variant="flat">
+          <Button isIconOnly   className="rounded-full" size="sm" variant="ghost">
             <Eye size={18} />
           </Button>
 
-          <Button isIconOnly radius="full" size="sm" variant="flat">
+          <Button isIconOnly   className="rounded-full" size="sm" variant="ghost">
             <ShoppingCart size={18} />
           </Button>
         </div>

@@ -27,8 +27,8 @@ export default function PromoSection() {
                         </p>
 
                         <Button
-                            radius="full"
-                            className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
+                              
+                            className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21] rounded-full"
                         >
                             Shop Now
                         </Button>
@@ -56,8 +56,8 @@ export default function PromoSection() {
                             </p>
 
                             <Button
-                                radius="full"
-                                className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
+                                
+                                className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21] rounded-full"
                             >
                                 Shop Now
                             </Button>
@@ -83,8 +83,8 @@ export default function PromoSection() {
                             </p>
 
                             <Button
-                                radius="full"
-                                className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21]"
+                               
+                                className="bg-[#7B4F2C] px-6 text-white transition hover:bg-[#5F3D21] rounded-full"
                             >
                                 Shop Now
                             </Button>

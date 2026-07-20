@@ -28,8 +28,8 @@ export default function SpecialOffer() {
           </p>
 
           <Button
-            radius="full"
-            className="bg-[#9C6B3F] px-8 py-7 hover:bg-[#7D542F] hover:scale-105 text-lg font-semibold text-white hover:bg-[#7D542F]"
+           
+            className="bg-[#9C6B3F] px-8 py-7 rounded-full hover:bg-[#7D542F] hover:scale-105 text-lg font-semibold text-white hover:bg-[#7D542F]"
           >
             Shop Now
           </Button>

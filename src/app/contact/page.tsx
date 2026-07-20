@@ -54,26 +54,28 @@ export default function ContactPage() {
           </h2>
 
           <div className="space-y-5">
+            <label className="mb-2 block">Full Name</label>
             <Input
-              label="Full Name"
+             
               placeholder="Enter your name"
             />
-
+<label className="mb-2 block">Email</label>
             <Input
               type="email"
-              label="Email"
+         
               placeholder="Enter your email"
             />
-
+<label className="mb-2 block">Subject</label>
             <Input
-              label="Subject"
+            
               placeholder="Message subject"
             />
+<label className="mb-2 block">Message</label>
 
-         <TextArea
-  label="Message"
-  placeholder="Write your message..."
-  minRows={5}
+<textarea
+  placeholder="Write your message"
+  rows={5}
+  className="w-full rounded-lg border p-3"
 />
             <Button className="w-full bg-black text-white">
               Send Message
