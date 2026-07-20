@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Input, Textarea } from "@heroui/react";
+import { Button, Input, TextArea } from "@heroui/react";
 import AIContentGenerator from "@/components/AIContentGenerator";
 
 export default function AddProductPage() {
