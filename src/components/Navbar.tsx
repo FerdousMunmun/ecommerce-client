@@ -51,7 +51,7 @@ const Navbar = () => {
     fetchCart();
   }, []);
   return (
-    <header className="border-t-2 border-purple-600 sticky">
+    <header className="border-t-2 border-purple-600 sticky top-0 z-50 bg-white">
       {/* Top Navbar */}
       <div className="border-b">
         <div className="container mx-auto flex h-14 items-center justify-between px-4">
