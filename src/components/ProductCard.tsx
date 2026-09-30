@@ -97,18 +97,18 @@ const handleAddToCart = async () => {
         </p>
 
       <div className="mt-5 transform space-y-3 text-sm opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 translate-y-4">
-  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black">
+  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black cursor-pointer">
     Add to Wish List
     <Heart size={16} />
   </button>
 
-  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black">
+  <button className="flex w-full items-center justify-end gap-2 text-gray-600 transition hover:text-black cursor-pointer">
     Compare
     <Eye size={16} />
   </button>
 
   <button  onClick={handleAddToCart}
-  className="flex w-full items-center justify-end gap-2 font-semibold text-black transition hover:text-[#9C6B3F]">
+  className="flex w-full items-center justify-end gap-2 font-semibold text-black transition hover:text-[#9C6B3F] cursor-pointer">
     Add to Cart
     <ShoppingCart size={16} />
   </button>
